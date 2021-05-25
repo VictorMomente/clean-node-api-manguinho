@@ -1,9 +1,30 @@
+// typescript é uma linguagem que quando compilada gera um código JavaScript no final
+// que é o que o node entende.
+// outDir eu conto para o meu programa onde esses arquivos javaScript (resultado da
+// compilação do typescript) vão ser salvos. Eu ponho essa pasta ".dist". Adiciono
+// essa pasta no gitignore também, porque não preciso ficar commitando ela, porque
+// são arquivos que são mudados o tempo todo.
+
+// Com o "module" eu indico que o javaScript (gerado da compilação do Typescript) deve
+// vir no formato commonjs, que é o que o node e os browsers entendem hoje em dia.
+
+// O ECMAScript é uma linguagem de programação baseada no JavaScript. Ela dita um
+// padrão de modelo entre as linguagens baseadas em script. Quando coloco "target"
+// igual a "es2019", por exemplo, eu indico que o meu código JavaScript (gerado pela
+// compilação do Typescript) será no modelo do ECMAScript 2019.
+
+// allowJS como true permite arquivos de configuração JavaScript (ao invés de Json)
+// seja incluido
+
+// strictNullChecks auxilia em valores null e undefined
+
 {
-    "compilerOptions": {
-        "outDir": "./dist", 
-        "module": "commonjs",
-        "target": "es2019", 
-        "esModuleInterop": true,
-        "allowJs": true
-    }
+  "compilerOptions": {
+    "outDir": "./dist", 
+    "module": "commonjs",
+    "target": "es2019", 
+    "esModuleInterop": true,
+    "allowJs": true,
+    "strictNullChecks": true
+  }
 }

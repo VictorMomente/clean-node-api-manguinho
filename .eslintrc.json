@@ -1,0 +1,13 @@
+// extends indica que quero configurar meu ESLint apartir da biblioteca do
+// standard-with-typescript que baixamos no link: 
+// "https://www.npmjs.com/package/eslint-config-standard-with-typescript"
+// para podermos usar o standard com TypeScript
+
+// o parserOptions, project, eu aponto para o arquivo de configuração do TypeScript
+// indicando para o ESLint que meu TypeScript segue estas configurações
+{
+	"extends": "standard-with-typescript",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
+}

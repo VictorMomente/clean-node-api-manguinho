@@ -16,7 +16,7 @@
 // allowJS como true permite arquivos de configuração JavaScript (ao invés de Json)
 // seja incluido
 
-// strictNullChecks auxilia em valores null e undefined
+// strictNullChecks auxilia em valores null e undefined.
 
 {
   "compilerOptions": {

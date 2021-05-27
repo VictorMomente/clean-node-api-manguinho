@@ -1,14 +1,16 @@
 /* -
-No teste unitário abaixo, crio uma instancia da classe a ser testada
+
+> No teste unitário abaixo, crio uma instancia da classe a ser testada
 "sut", a qual invoco a função hundle, que é responsável em validar o request
 httpRequest que eu forjo também.
 
-No caso estou testando um request sem a informação "name", o qual espera
+> No caso estou testando um request sem a informação "name", o qual espera
 um response com código 400
 Além disso, importo a Classe SignUpController do arquivo signup
 
-Eu também posso esperar uma mensagem de erro, por isso usa o
+> Eu também posso esperar uma mensagem de erro, por isso usa o
 toEqual, para comparar valores somente.
+
 -  */
 
 import { SignUpController } from './signup'

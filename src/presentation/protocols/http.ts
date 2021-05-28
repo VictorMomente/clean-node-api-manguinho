@@ -13,11 +13,11 @@ precisam ter para eu poder usar elas em outros códigos.
   Já requisições do tipo post, precisam...
 - */
 
-export interface httpResponse {
+export interface HttpResponse {
   statusCode: number
   body: any
 }
 
-export interface httpRequest {
+export interface HttpRequest {
   body?: any
 }

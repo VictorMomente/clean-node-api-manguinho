@@ -11,13 +11,24 @@ Além disso, importo a Classe SignUpController do arquivo signup
 > Eu também posso esperar uma mensagem de erro, por isso usa o
 toEqual, para comparar valores somente.
 
+> EmailValidatorStub implementa EmailValidator. Isso Significa
+polimorfismo
+
 -  */
 
 import { SignUpController } from './signup'
 import { MissingParamError } from '../errors/missing-param-error'
+import { InvalidParamError } from '../errors/invalid-param-error'
+import { EmailValidator } from '../protocols/email-validator'
 
 const makeSut = (): SignUpController => {
-  return new SignUpController()
+  class EmailValidatorStub implements EmailValidator {
+    isValid (email: string): boolean {
+      return false
+    }
+  }
+  const emailValidatorStub = new EmailValidatorStub()
+  return new SignUpController(emailValidatorStub)
 }
 
 describe('SignUp Controller', () => {
@@ -75,5 +86,20 @@ describe('SignUp Controller', () => {
     const httpResponse = sut.handle(httpRequest)
     expect(httpResponse.statusCode).toBe(400)
     expect(httpResponse.body).toEqual(new MissingParamError('passwordConfirmation'))
+  })
+
+  test('Should return 400 if an invalid email is provided', () => {
+    const sut = makeSut()
+    const httpRequest = {
+      body: {
+        name: 'any_name',
+        email: 'invalid_email@mail.com',
+        password: 'any_password',
+        passwordConfirmation: 'any_password'
+      }
+    }
+    const httpResponse = sut.handle(httpRequest)
+    expect(httpResponse.statusCode).toBe(400)
+    expect(httpResponse.body).toEqual(new InvalidParamError('email'))
   })
 })

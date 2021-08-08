@@ -1,11 +1,9 @@
 // claase SignUp Controller
 // Dúvidas sobre o badRequest e MissingParamError? olhar aula 7 seção 2
 
-import { HttpResponse, HttpRequest } from '../protocols/http'
+import { HttpResponse, HttpRequest, Controller, EmailValidator } from '../protocols'
 import { MissingParamError, InvalidParamError } from '../errors'
 import { badRequest, serverError } from '../helpers/http-helper'
-import { Controller } from '../protocols/controller'
-import { EmailValidator } from '../protocols/email-validator'
 
 export class SignUpController implements Controller {
   private readonly emailValidator: EmailValidator

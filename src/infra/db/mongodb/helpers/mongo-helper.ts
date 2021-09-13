@@ -13,5 +13,15 @@ export const MongoHelper = {
 
   getCollection (name: string): Collection {
     return this.client.db().collection(name)
+  },
+
+  map (collection: any): any {
+    const collectionInserted = {
+      id: collection._id.toHexString(),
+      name: collection.name,
+      email: collection.email,
+      password: collection.password
+    }
+    return collectionInserted
   }
 }
